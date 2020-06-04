@@ -21,7 +21,7 @@
 ## :pushpin: About this project
 :recycle: **Ecoleta** is a platform which helps people find waste collection points, aiming to facilitate the correct disposal.
 
-It is composed by two main modules: :computer: **web** and :iphone: **mobile**, in addiction to an :cloud: **RESTful API** as backend for both applications.
+It is composed by two main modules: :computer: **web** and :iphone: **mobile**, in addiction to a :cloud: **RESTful API** as backend for both applications.
 
 This project was built during the first edition of **[Next Level Week](https://nextlevelweek.com/)**.
 
@@ -40,7 +40,7 @@ This project was built during the first edition of **[Next Level Week](https://n
 > :bulb: It is worth mentioning that both web and mobile apps need the backend server running to work properly. Keeping that in mind, let's go ahead...
 
 ### :eyes: Prerequisites
-First thing first, you are going to need to have installed in your machine [Git](https://git-scm.com/) and [Node.js](https://nodejs.org). Optionally, if you wish to edit the code, we recommend [Visual Studio Code](https://code.visualstudio.com/).
+First thing first, you are going to need to have installed in your machine [Git](https://git-scm.com/) and [Node.js](https://nodejs.org). Optionally, if you wish to edit the code, I would recommend [Visual Studio Code](https://code.visualstudio.com/).
 
 With the prerequisites installed, the next step is to clone the project.
 ```bash
