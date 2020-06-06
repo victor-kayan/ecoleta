@@ -7,6 +7,7 @@ class ItemsController {
     const items = await knex('items').select('*');
 
     const serverUrl = 'localhost:3333';
+    
     const serializedItems = items.map(item => {
       return {
         id: item.id,
@@ -17,6 +18,6 @@ class ItemsController {
 
     return response.json(serializedItems);
   }
-};
+}
 
 export default ItemsController;
