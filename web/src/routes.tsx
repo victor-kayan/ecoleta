@@ -5,7 +5,7 @@ import { Home, CreatePoint } from './pages';
 
 const Routes: React.FC = () => {
   return (
-    <BrowserRouter>/
+    <BrowserRouter>
       <Route component={Home} path='/' exact />
       <Route component={CreatePoint} path='/create-point' />
     </BrowserRouter>
