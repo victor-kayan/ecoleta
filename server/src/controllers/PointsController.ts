@@ -5,6 +5,13 @@ import knex from '../database/connection';
 class PointsController {
   async index(request: Request, response: Response) {
     const { city, uf, items } = request.query;
+    const numberOfParsedQueries = Object.entries(request.query).length
+
+    if (numberOfParsedQueries === 0) {
+      const allPoints = await knex('points').select('*');
+    
+      return response.json(allPoints);
+    }
 
     const parsedItems = String(items)
       .split(',')
