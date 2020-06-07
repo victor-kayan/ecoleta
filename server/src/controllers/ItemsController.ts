@@ -12,7 +12,7 @@ class ItemsController {
       return {
         id: item.id,
         title: item.title,
-        image_ur: `http://${serverUrl}/uploads/${item.image}`,
+        image_url: `http://${serverUrl}/uploads/${item.image}`,
       }
     });
 
