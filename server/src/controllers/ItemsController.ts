@@ -6,7 +6,7 @@ class ItemsController {
   async index(request: Request, response: Response) {
     const items = await knex('items').select('*');
 
-    const serverUrl = 'localhost:3333';
+    const serverUrl = '192.168.1.8:3333';
     
     const serializedItems = items.map(item => {
       return {
