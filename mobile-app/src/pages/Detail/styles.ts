@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? 20 + Constants.statusBarHeight : 0,
   },
 
+  centeredContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   pointImage: {
     width: '100%',
     height: 120,
