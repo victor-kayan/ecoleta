@@ -27,11 +27,12 @@ interface RouteParams {
 interface Data {
   point: {
     name: string;
-    image: string;
+    image_url: string;
     email: string;
     whatsapp: string;
     city: string;
     uf: string;
+    number: string;
   };
   items: {
     title: string;
@@ -82,7 +83,7 @@ const Detail: React.FC = () => {
           <FeatherIcon name='arrow-left' color='#34CB79' size={20} />
         </TouchableOpacity>
 
-        <Image style={styles.pointImage} source={{ uri: data.point.image }} />
+        <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
         
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
@@ -91,7 +92,9 @@ const Detail: React.FC = () => {
         
         <View style={styles.address}>
           <Text style={styles.addressTitle}>Endereço</Text>
-          <Text style={styles.addressContent}>{data.point.city}, {data.point.uf}</Text>
+          <Text style={styles.addressContent}>
+            {data.point.city}, {data.point.uf} - número {data.point.number}
+          </Text>
         </View>
       </View>
 

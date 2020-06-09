@@ -13,6 +13,7 @@ import axios from 'axios';
 
 import api from '../../services/api';
 import logo from '../../assets/logo.svg';
+import Dropzone from '../../components/Dropzone';
 import './styles.css';
 
 interface Item {
@@ -49,8 +50,9 @@ const CreatePoint: React.FC = () => {
   
   const [selectedUf, setSelectedUf] = useState('0');
   const [selectedCity, setSelectedCity] = useState('0');
-  const [selectedItems, setSelectedItems] = useState<[number]>([]);
+  const [selectedItems, setSelectedItems] = useState<[number]>([0]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   const history = useHistory();
 
@@ -76,7 +78,7 @@ const CreatePoint: React.FC = () => {
 
         setUfs(ufInitials);
       });
-  });
+  }, []);
 
   useEffect(() => {
     if (selectedUf === '0') {
@@ -120,9 +122,9 @@ const CreatePoint: React.FC = () => {
     if (alreadySelected >= 0) {
       const filteredItems = selectedItems.filter(item => item !== id);
 
-      setSelectedItems(filteredItems);
+      setSelectedItems(filteredItems as [number]);
     } else {
-      setSelectedItems([ ...selectedItems, id ]);
+      setSelectedItems([ ...selectedItems, id ] as [number]);
     }
   }
 
@@ -135,17 +137,21 @@ const CreatePoint: React.FC = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name, 
-      email, 
-      whatsapp,
-      uf,
-      city,
-      latitude, 
-      longitude,
-      number,
-      items
-    };
+    const data = new FormData();
+
+    data.append('name', name); 
+    data.append('email', email); 
+    data.append('whatsapp', whatsapp);
+    data.append('uf', uf);
+    data.append('city', city);
+    data.append('latitude', String(latitude)); 
+    data.append('longitude', String(longitude));
+    data.append('number', String(number));
+    data.append('items', items.join(','));
+    
+    if (selectedFile) {
+      data.append('image', selectedFile);
+    }
 
     try {
       await api.post('points', data);
@@ -172,6 +178,8 @@ const CreatePoint: React.FC = () => {
 
       <form onSubmit={handleSubmit}>
         <h1>Cadastro do<br />ponto de coleta</h1>
+
+        <Dropzone onFileUploaded={setSelectedFile} />
 
         <fieldset>
           <legend>
