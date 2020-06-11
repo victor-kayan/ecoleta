@@ -2,8 +2,6 @@
   <img alt="Logo" title="#logo" width="300px" src=".github/logo.png">
   <br><br>
   <strong>Helping people efficiently find waste collection points!</strong>
-  
-  <p align="center">🚧 Work in progress... 🚧<p>
 </h3>
 
 <p align="center">
@@ -21,11 +19,11 @@
 ## :pushpin: About this project
 :recycle: **Ecoleta** is a platform which helps people find waste collection points, aiming to facilitate the correct disposal.
 
-It is composed by two main modules: :computer: **web** and :iphone: **mobile**, in addiction to a :cloud: **RESTful API** as backend for both applications.
+It is composed by two main modules: :computer: [**web**](https://github.com/victor-kayan/ecoleta/tree/master/web) and :iphone: [**mobile**](https://github.com/victor-kayan/ecoleta/tree/master/mobile-app), in addiction to a :cloud: [**RESTful API**](https://github.com/victor-kayan/ecoleta/tree/master/server) as backend for both applications.
 
 This project was built during the first edition of **[Next Level Week](https://nextlevelweek.com/)**.
 
-> Big thanks to [Rocketseat](https://rocketseat.com.br) and [Diego Fernandes](https://github.com/diego3g) for holding this event!
+> Big thanks to [Rocketseat](https://rocketseat.com.br), especially to [Diego Fernandes](https://github.com/diego3g), for holding this event!
 
 ## :hammer_and_wrench: Technologies
 :cloud: For API REST: [Node.js](https://nodejs.org/) and [Express.js](https://expressjs.com/)
@@ -40,9 +38,14 @@ This project was built during the first edition of **[Next Level Week](https://n
 > :bulb: It is worth mentioning that both web and mobile apps need the backend server running to work properly. Keeping that in mind, let's go ahead...
 
 ### :eyes: Prerequisites
-First thing first, you are going to need to have installed in your machine [Git](https://git-scm.com/) and [Node.js](https://nodejs.org). Optionally, if you wish to edit the code, I would recommend [Visual Studio Code](https://code.visualstudio.com/).
+First thing first, you are going to need to have installed in your machine: 
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org)
+- [npm](https://www.npmjs.com/) and/or [Yarn](https://yarnpkg.com/)
+- [expo-cli](https://docs.expo.io/)
 
-With the prerequisites installed, the next step is to clone the project.
+Optionally, if you wish to edit the code, I would recommend [Visual Studio Code](https://code.visualstudio.com/). Finally, with the prerequisites installed, the next step is to clone the project.
+
 ```bash
 # Clone this repository
 $ git clone https://github.com/victor-kayan/ecoleta
@@ -57,6 +60,16 @@ $ cd ecoleta/server
 $ npm install
 # Or...
 $ yarn
+
+# Run database migrations
+$ npm run knex:migrate
+# Or...
+$ yarn knex:migrate
+
+# Run database seeds
+$ npm run knex:seed
+# Or...
+$ yarn knex:seed
 
 # Run server in development mode
 $ npm run dev
@@ -78,15 +91,28 @@ $ yarn
 $ npm run start
 # Or...
 $ yarn start
-
-# The application will run on port 3000. Access http://localhost:3000
 ```
 
+The application will run on port 3000. Access [`http://localhost:3000`](http://localhost:3000).
+
 ### :star2: Run mobile device application
-> :construction: Not available yet... :construction:
+```bash
+# Change to the mobile directory
+$ cd ecoleta/mobile-app
+
+# Run Metro Bundler
+$ expo start
+# Or...
+$ yarn start
+```
+
+After that, to run the app on your mobile device:
+1. Open the Expo app (Android) or the Camera app (iOS);
+2. Scan the QR code;
+3. **It is done!**
 
 ## :memo: License
-This project is under MIT License. Take a look at [LICENSE](LICENSE) for details.
+This project is under MIT License. Take a look at [LICENSE](https://github.com/victor-kayan/ecoleta/blob/master/LICENSE) for details.
 
 ---
 
